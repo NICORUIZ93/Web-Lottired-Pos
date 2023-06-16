@@ -1,0 +1,7 @@
+{
+  "name": "web-lottired-pos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
