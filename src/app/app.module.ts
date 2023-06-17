@@ -1,10 +1,11 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
+  NbActionsModule,
   NbAlertModule,
   NbButtonModule,
   NbCardModule,
@@ -14,7 +15,6 @@ import {
   NbLayoutModule,
   NbMenuModule,
   NbOptionModule,
-  NbSelectModule,
   NbSidebarModule,
   NbSpinnerModule,
   NbStepperModule,
@@ -24,12 +24,12 @@ import {
   NbTreeGridModule,
   NbUserModule,
 } from '@nebular/theme';
-import {NbEvaIconsModule} from '@nebular/eva-icons';
-import {LoginComponent} from './login/login.component';
-import {SalesComponent} from './sales/sales.component';
-import {MySalesComponent} from './my-sales/my-sales.component';
-import {NewsComponent} from './news/news.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
+import { LoginComponent } from './login/login.component';
+import { MySalesComponent } from './my-sales/my-sales.component';
+import { NewsComponent } from './news/news.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SalesComponent } from './sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +43,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NbThemeModule.forRoot({name: 'default'}),
+    FormsModule,
+    NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
     NbToastrModule.forRoot(),
@@ -61,11 +62,12 @@ import {ReactiveFormsModule} from '@angular/forms';
     NbStepperModule,
     NbSpinnerModule,
     NbAlertModule,
-    NbSelectModule,
     NbOptionModule,
+    NbActionsModule,
+    NbThemeModule,
   ],
   providers: [],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}

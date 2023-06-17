@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { NbThemeService, NbSidebarService, NbMenuItem } from '@nebular/theme';
+import {
+  NbThemeService,
+  NbMenuItem,
+  NB_WINDOW,
+  NbMenuService,
+  NbSidebarService,
+} from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +15,7 @@ import { NbThemeService, NbSidebarService, NbMenuItem } from '@nebular/theme';
 })
 export class AppComponent {
   title = 'Web-Lottired-Pos';
+
   changeStateTheme: Boolean;
   profiles = [{ title: 'Profile' }, { title: 'Logout' }];
 
@@ -19,16 +26,15 @@ export class AppComponent {
   constructor(
     private themeService: NbThemeService,
     private sidebarService: NbSidebarService
-  ) {
-    themeService.changeTheme('dark');
-  }
+  ) {}
+
+  ngOnInit() {}
 
   changeTheme(theme) {
     this.themeService.changeTheme(theme);
   }
-
   toggle() {
-    this.sidebarService.toggle(false, 'left');
+    this.sidebarService.toggle(true, 'left');
   }
 
   items: NbMenuItem[] = [

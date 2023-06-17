@@ -22,7 +22,7 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-
+  
   onSubmit() {
     console.log(this.loginForm.value);
     this.toastService.showToast(
