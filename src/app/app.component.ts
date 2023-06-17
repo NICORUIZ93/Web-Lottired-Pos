@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
-import {NbGlobalLogicalPosition, NbGlobalPhysicalPosition, NbGlobalPosition, NbToastrService,} from '@nebular/theme';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { NbThemeService, NbSidebarService, NbMenuItem } from '@nebular/theme';
 
 @Component({
   selector: 'app-root',
@@ -8,18 +9,72 @@ import {NbGlobalLogicalPosition, NbGlobalPhysicalPosition, NbGlobalPosition, NbT
 })
 export class AppComponent {
   title = 'Web-Lottired-Pos';
-  physicalPositions = NbGlobalPhysicalPosition;
-  logicalPositions = NbGlobalLogicalPosition;
-  private index: number = 0;
+  changeStateTheme: Boolean;
+  profiles = [{ title: 'Profile' }, { title: 'Logout' }];
 
-  constructor(private toastrService: NbToastrService) {
+  themes = ['dark', 'corporate', 'cosmic', 'default', 'nicolas'];
+
+  selectedItemFormControl = new FormControl();
+
+  constructor(
+    private themeService: NbThemeService,
+    private sidebarService: NbSidebarService
+  ) {
+    themeService.changeTheme('dark');
   }
 
-  showToast(position: NbGlobalPosition) {
-    this.toastrService.show(
-      'This is super toast message',
-      `This is toast number: ${++this.index}`,
-      {position}
-    );
+  changeTheme(theme) {
+    this.themeService.changeTheme('theme');
   }
+
+  toggle() {
+    this.sidebarService.toggle(false, 'left');
+  }
+
+  items: NbMenuItem[] = [
+    {
+      title: 'Login',
+      icon: 'person-outline',
+      expanded: false,
+      children: [
+        {
+          title: 'Login',
+          link: '/login',
+        },
+        {
+          title: 'Logout',
+        },
+      ],
+    },
+    {
+      title: 'ventas',
+      icon: 'shopping-cart-outline',
+      children: [
+        {
+          title: 'venta',
+          link: '/sales',
+        },
+      ],
+    },
+    {
+      title: 'Historial',
+      icon: 'shopping-bag-outline',
+      children: [
+        {
+          title: 'Mi historial de ventas',
+          link: '/mysales',
+        },
+      ],
+    },
+    {
+      title: 'Noticias',
+      icon: 'shake-outline',
+      children: [
+        {
+          title: 'Noticias nuevas',
+          link: '/news',
+        },
+      ],
+    },
+  ];
 }

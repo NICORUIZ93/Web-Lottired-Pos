@@ -1,3 +1,4 @@
+import { ToastService } from './../services/toast.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,7 +10,11 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -20,6 +25,10 @@ export class LoginComponent {
 
   onSubmit() {
     console.log(this.loginForm.value);
+    this.toastService.showToast(
+      'Este es el titulo de la notificacion!!!',
+      'Este el el cuerpo del mensaje'
+    );
     this.router.navigate(['/sales']);
   }
 }

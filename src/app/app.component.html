@@ -1,13 +1,40 @@
 <nb-layout>
-  <nb-layout-header>header</nb-layout-header>
-  <nb-layout-column>
-    <button (click)="showToast(physicalPositions.TOP_RIGHT)" nbButton>
-      Top Right
-    </button>
+  <nb-layout-header fixed>
+    <div
+      class="button-group"
+      style="width: 100%; display: flex; justify-content: space-between"
+    >
+      <nb-user
+        nbButton
+        nbContextMenuTag="my-context-menu"
+        [nbContextMenu]="items"
+        nbContextMenuTrigger="click"
+        shape="rectangle"
+        class="top-left"
+        size="large"
+        name="Nikita Poltoratsky"
+        title="full-stack developer"
+        badgeText="99+"
+        badgeStatus="success"
+        badgePosition="bottom right"
+        picture="../assets/man-597178_960_720.jpg"
+      >
+        >
+      </nb-user>
 
-    >
-    <router-outlet></router-outlet
-    >
+      <nb-select
+        placeholder="Custom label"
+        [formControl]="selectedItemFormControl"
+        (selectedChange)="changeTheme($event)"
+      >
+        <nb-option value="1" *ngFor="let item of themes" [value]="item">{{
+          item
+        }}</nb-option>
+      </nb-select>
+    </div>
+  </nb-layout-header>
+
+  <nb-layout-column class="colored-column-warning">
+    <router-outlet></router-outlet>
   </nb-layout-column>
-  <nb-layout-footer>footer</nb-layout-footer>
 </nb-layout>
