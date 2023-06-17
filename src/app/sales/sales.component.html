@@ -1,0 +1,99 @@
+<nb-card
+  [nbSpinner]="loading"
+  nbSpinnerStatus="danger"
+  nbSpinnerSize="large"
+  nbSpinnerMessage=""
+>
+  <nb-card-body>
+    <nb-stepper>
+      <!-- Paso 1 -->
+      <nb-step label="Paso 1">
+        <form [formGroup]="ventaForm">
+          <div class="form-group">
+            <label for="numeroTicket">Número de Ticket:</label>
+            <input
+              type="text"
+              id="numeroTicket"
+              formControlName="numeroTicket"
+              nbInput
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="fechaVenta">Fecha de Venta:</label>
+            <input
+              type="text"
+              id="fechaVenta"
+              formControlName="fechaVenta"
+              nbInput
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="monto">Monto:</label>
+            <input
+              type="text"
+              id="monto"
+              formControlName="monto"
+              nbInput
+              required
+            />
+          </div>
+          <button
+            nbButton
+            nbStepperNext
+            [disabled]="validarPaso1()"
+            status="success"
+          >
+            Siguiente
+          </button>
+        </form>
+      </nb-step>
+
+      <!-- Paso 2 -->
+      <nb-step label="Paso 2">
+        <form [formGroup]="ventaForm" (ngSubmit)="completarCompra()">
+          <div class="form-group">
+            <label for="nombreComprador">Nombre del Comprador:</label>
+            <input
+              type="text"
+              id="nombreComprador"
+              formControlName="nombreComprador"
+              nbInput
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="cedulaComprador">Cédula del Comprador:</label>
+            <input
+              type="text"
+              id="cedulaComprador"
+              formControlName="cedulaComprador"
+              nbInput
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="telefonoComprador">Teléfono del Comprador:</label>
+            <input
+              type="text"
+              id="telefonoComprador"
+              formControlName="telefonoComprador"
+              nbInput
+              required
+            />
+          </div>
+          <button
+            nbButton
+            type="submit"
+            status="success"
+            [disabled]="ventaForm.invalid"
+          >
+            Completar compra
+          </button>
+        </form>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
+
