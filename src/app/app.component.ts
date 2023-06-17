@@ -12,7 +12,7 @@ export class AppComponent {
   changeStateTheme: Boolean;
   profiles = [{ title: 'Profile' }, { title: 'Logout' }];
 
-  themes = ['dark', 'corporate', 'cosmic', 'default', 'nicolas'];
+  themes = ['dark', 'corporate', 'cosmic', 'default', 'prueba'];
 
   selectedItemFormControl = new FormControl();
 
@@ -24,7 +24,7 @@ export class AppComponent {
   }
 
   changeTheme(theme) {
-    this.themeService.changeTheme('theme');
+    this.themeService.changeTheme(theme);
   }
 
   toggle() {

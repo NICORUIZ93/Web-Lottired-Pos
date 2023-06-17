@@ -2,6 +2,8 @@
 @use '@nebular/theme/styles/theming' as *;
 @use '@nebular/theme/styles/themes';
 
+$nb-enable-css-custom-properties: true;
+
 $nb-themes: nb-register-theme((
 
   // add your variables here like:
@@ -16,4 +18,4 @@ $nb-themes: nb-register-theme((
   // color-primary-800: #102694,
   // color-primary-900: #091c7a,
 
-), default, default);
+), prueba, default);
