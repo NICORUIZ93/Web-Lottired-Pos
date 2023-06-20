@@ -9,13 +9,15 @@
       </nb-user>
     </div>
   </nb-layout-header>
-  <nb-sidebar tag="left"
-    ><nb-card>
-      <nb-menu [items]="items"> </nb-menu> </nb-card
-  ></nb-sidebar>
+  <nb-sidebar tag="left" state="collapsed">
+    <nb-card>
+      <nb-menu [items]="items"></nb-menu>
+    </nb-card>
+  </nb-sidebar>
   <nb-layout-column
     ><nb-layout>
       <nb-layout-column>
+        <button (click)="open()" nbButton>Open Dialog</button>
         <router-outlet></router-outlet>
       </nb-layout-column> </nb-layout
   ></nb-layout-column>

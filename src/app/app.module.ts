@@ -1,15 +1,18 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {
   NbActionsModule,
   NbAlertModule,
   NbButtonModule,
   NbCardModule,
   NbContextMenuModule,
+  NbDialogModule,
   NbIconModule,
   NbInputModule,
   NbLayoutModule,
@@ -24,12 +27,15 @@ import {
   NbTreeGridModule,
   NbUserModule,
 } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { LoginComponent } from './login/login.component';
-import { MySalesComponent } from './my-sales/my-sales.component';
-import { NewsComponent } from './news/news.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SalesComponent } from './sales/sales.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ConfigurationComponent} from './configuration/configuration.component';
+import {LoginComponent} from './login/login.component';
+import {MySalesComponent} from './my-sales/my-sales.component';
+import {NewsComponent} from './news/news.component';
+import {SalesComponent} from './sales/sales.component';
+import {FilesUploadComponent} from './shared/files-upload/files-upload.component';
+import {SpinnerComponent} from './shared/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -38,23 +44,29 @@ import { SalesComponent } from './sales/sales.component';
     SalesComponent,
     MySalesComponent,
     NewsComponent,
+    SpinnerComponent,
+    FilesUploadComponent,
+    ConfigurationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    NbThemeModule.forRoot({ name: 'default' }),
+    HttpClientModule,
+    DragDropModule,
     NbLayoutModule,
     NbEvaIconsModule,
+    NbThemeModule.forRoot({name: 'default'}),
+    NbMenuModule.forRoot(),
     NbToastrModule.forRoot(),
-    NbButtonModule,
     NbSidebarModule.forRoot(),
+    NbDialogModule.forRoot(),
+    NbButtonModule,
     NbIconModule,
     ReactiveFormsModule,
     NbCardModule,
     NbInputModule,
-    NbMenuModule.forRoot(),
     NbTreeGridModule,
     NbContextMenuModule,
     NbUserModule,

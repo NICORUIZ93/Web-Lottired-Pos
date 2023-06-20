@@ -1,12 +1,12 @@
-import { Component, Inject, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-  NbThemeService,
+  NbDialogService,
   NbMenuItem,
-  NB_WINDOW,
-  NbMenuService,
   NbSidebarService,
+  NbThemeService,
 } from '@nebular/theme';
+import { FilesUploadComponent } from './shared/files-upload/files-upload.component';
 
 @Component({
   selector: 'app-root',
@@ -20,22 +20,6 @@ export class AppComponent {
   profiles = [{ title: 'Profile' }, { title: 'Logout' }];
 
   themes = ['dark', 'corporate', 'cosmic', 'default', 'prueba'];
-
-  selectedItemFormControl = new FormControl();
-
-  constructor(
-    private themeService: NbThemeService,
-    private sidebarService: NbSidebarService
-  ) {}
-
-  ngOnInit() {}
-
-  changeTheme(theme) {
-    this.themeService.changeTheme(theme);
-  }
-  toggle() {
-    this.sidebarService.toggle(true, 'left');
-  }
 
   items: NbMenuItem[] = [
     {
@@ -82,5 +66,42 @@ export class AppComponent {
         },
       ],
     },
+    {
+      title: 'Mis configuraciones',
+      icon: 'settings-outline',
+      children: [
+        {
+          title: 'Configuracion',
+          link: '/configuration',
+        },
+      ],
+    },
   ];
+
+  selectedItemFormControl = new FormControl();
+
+  constructor(
+    private themeService: NbThemeService,
+    private sidebarService: NbSidebarService,
+    private dialogService: NbDialogService
+  ) {}
+
+  ngOnInit() {}
+
+  changeTheme(theme) {
+    this.themeService.changeTheme(theme);
+  }
+
+  toggle() {
+    this.sidebarService.toggle(false, 'left');
+  }
+
+  open() {
+    this.dialogService
+      .open(FilesUploadComponent, {
+        context: 'Este es un mensaje de prueba',
+        hasBackdrop: true,
+      })
+      .onClose.subscribe(() => {});
+  }
 }

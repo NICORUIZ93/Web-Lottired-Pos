@@ -29,6 +29,7 @@
     "@capacitor/ios": "5.0.5",
     "@capacitor/keyboard": "5.0.4",
     "@capacitor/status-bar": "5.0.4",
+    "@nebular/auth": "^11.0.0",
     "@nebular/eva-icons": "^11.0.0",
     "@nebular/theme": "^11.0.0",
     "eva-icons": "^1.1.3",

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { NbGlobalPhysicalPosition } from '@nebular/theme';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {NbGlobalPhysicalPosition} from '@nebular/theme';
 
 @Component({
   selector: 'app-sales',
@@ -10,10 +10,8 @@ import { NbGlobalPhysicalPosition } from '@nebular/theme';
 })
 export class SalesComponent {
   ventaForm: FormGroup;
-
   loading = false;
-
-  private index: number = 0;
+  randomNumbers: number[] = [];
   positions = NbGlobalPhysicalPosition;
 
   constructor(private fb: FormBuilder, private router: Router) {}
@@ -30,20 +28,24 @@ export class SalesComponent {
       nombreComprador: ['', Validators.required],
       cedulaComprador: ['', Validators.required],
       telefonoComprador: ['', Validators.required],
+      numeroLoteria: ['', Validators.required],
     });
   }
 
   validarPaso1() {
     return this.ventaForm.get('numeroTicket').invalid ||
-      this.ventaForm.get('fechaVenta').invalid ||
-      this.ventaForm.get('monto').invalid
+    this.ventaForm.get('fechaVenta').invalid ||
+    this.ventaForm.get('monto').invalid
       ? true
       : false;
   }
 
+  validarPaso2() {
+    return this.ventaForm.get('numeroLoteria').invalid ? true : false;
+  }
+
   completarCompra(): void {
     this.loading = true;
-    this.index += 1;
 
     setTimeout(() => {
       console.log('hola');
@@ -51,5 +53,13 @@ export class SalesComponent {
       this.ventaForm.reset();
       this.router.navigate(['/login']);
     }, 1000);
+  }
+
+  generateRandomNumbers() {
+    this.randomNumbers = Array.from(
+      {length: 4},
+      () => +Math.floor(Math.random() * 10)
+    );
+    this.ventaForm.get('numeroLoteria').setValue(this.randomNumbers.join(''));
   }
 }

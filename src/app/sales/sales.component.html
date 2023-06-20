@@ -5,9 +5,9 @@
   nbSpinnerMessage=""
 >
   <nb-card-body>
-    <nb-stepper>
-      <!-- Paso 1 -->
+    <nb-stepper orientation="horizontal">
       <nb-step label="Paso 1">
+        <ng-template #labelTwo>Second step</ng-template>
         <form [formGroup]="ventaForm">
           <div class="form-group">
             <label for="numeroTicket">Número de Ticket:</label>
@@ -50,8 +50,49 @@
         </form>
       </nb-step>
 
-      <!-- Paso 2 -->
       <nb-step label="Paso 2">
+        <ng-template #labelTwo>Second step</ng-template>
+        <form [formGroup]="ventaForm">
+          <div class="form-group">
+            <div class="lottery-numbers">
+              <div class="number-container">
+                <div *ngFor="let number of randomNumbers" class="number-item">
+                  {{ number }}
+                </div>
+              </div>
+              <button
+                (click)="generateRandomNumbers()"
+                id="numeroLoteria"
+                nbButton
+              >
+                Generar números
+              </button>
+            </div>
+            <div class="button-group">
+              <button
+                class="button-previous"
+                nbButton
+                nbStepperPrevious
+                status="success"
+              >
+                Atrás
+              </button>
+              <button
+                [disabled]="validarPaso2()"
+                class="button-next"
+                nbButton
+                nbStepperNext
+                status="success"
+              >
+                Siguiente
+              </button>
+            </div>
+          </div>
+        </form>
+      </nb-step>
+
+      <nb-step label="Paso 3">
+        <ng-template #labelTwo>Second step</ng-template>
         <form [formGroup]="ventaForm" (ngSubmit)="completarCompra()">
           <div class="form-group">
             <label for="nombreComprador">Nombre del Comprador:</label>
@@ -96,4 +137,3 @@
     </nb-stepper>
   </nb-card-body>
 </nb-card>
-
