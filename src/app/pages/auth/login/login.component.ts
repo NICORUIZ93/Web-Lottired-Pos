@@ -1,7 +1,7 @@
-import { ToastService } from './../services/toast.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +22,7 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-  
+
   onSubmit() {
     console.log(this.loginForm.value);
     this.toastService.showToast(

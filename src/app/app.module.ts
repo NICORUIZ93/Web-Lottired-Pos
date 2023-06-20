@@ -1,11 +1,11 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-import {DragDropModule} from '@angular/cdk/drag-drop';
-import {HttpClientModule} from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NbEvaIconsModule} from '@nebular/eva-icons';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NbEvaIconsModule } from '@nebular/eva-icons';
 import {
   NbActionsModule,
   NbAlertModule,
@@ -27,15 +27,16 @@ import {
   NbTreeGridModule,
   NbUserModule,
 } from '@nebular/theme';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {ConfigurationComponent} from './configuration/configuration.component';
-import {LoginComponent} from './login/login.component';
-import {MySalesComponent} from './my-sales/my-sales.component';
-import {NewsComponent} from './news/news.component';
-import {SalesComponent} from './sales/sales.component';
-import {FilesUploadComponent} from './shared/files-upload/files-upload.component';
-import {SpinnerComponent} from './shared/spinner/spinner.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+import { NewsComponent } from './pages/news/news.component';
+import { SalesComponent } from './pages/sales/sales.component';
+import { FilesUploadComponent } from './shared/files-upload/files-upload.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegistrationComponent } from './pages/auth/registration/registration.component';
+import { ConfigurationComponent } from './pages/configuration/configuration.component';
+import { MySalesComponent } from './pages/my-sales/my-sales.component';
 
 @NgModule({
   declarations: [
@@ -44,9 +45,9 @@ import {SpinnerComponent} from './shared/spinner/spinner.component';
     SalesComponent,
     MySalesComponent,
     NewsComponent,
-    SpinnerComponent,
     FilesUploadComponent,
     ConfigurationComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +58,7 @@ import {SpinnerComponent} from './shared/spinner/spinner.component';
     DragDropModule,
     NbLayoutModule,
     NbEvaIconsModule,
-    NbThemeModule.forRoot({name: 'default'}),
+    NbThemeModule.forRoot({ name: 'default' }),
     NbMenuModule.forRoot(),
     NbToastrModule.forRoot(),
     NbSidebarModule.forRoot(),
