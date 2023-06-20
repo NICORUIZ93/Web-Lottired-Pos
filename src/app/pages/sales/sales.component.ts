@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {NbGlobalPhysicalPosition} from '@nebular/theme';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NbGlobalPhysicalPosition } from '@nebular/theme';
 
 @Component({
   selector: 'app-sales',
@@ -34,8 +34,8 @@ export class SalesComponent {
 
   validarPaso1() {
     return this.ventaForm.get('numeroTicket').invalid ||
-    this.ventaForm.get('fechaVenta').invalid ||
-    this.ventaForm.get('monto').invalid
+      this.ventaForm.get('fechaVenta').invalid ||
+      this.ventaForm.get('monto').invalid
       ? true
       : false;
   }
@@ -57,7 +57,7 @@ export class SalesComponent {
 
   generateRandomNumbers() {
     this.randomNumbers = Array.from(
-      {length: 4},
+      { length: 4 },
       () => +Math.floor(Math.random() * 10)
     );
     this.ventaForm.get('numeroLoteria').setValue(this.randomNumbers.join(''));

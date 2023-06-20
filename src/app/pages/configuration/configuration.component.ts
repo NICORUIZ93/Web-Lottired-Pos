@@ -3,6 +3,7 @@ import { NbDialogService } from '@nebular/theme';
 import { FilesUploadComponent } from 'src/app/shared/files-upload/files-upload.component';
 
 @Component({
+  selector: 'app-configuration',
   templateUrl: './configuration.component.html',
   styleUrls: ['./configuration.component.scss'],
 })

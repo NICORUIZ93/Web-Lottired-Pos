@@ -25,11 +25,11 @@
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
+            "allowedCommonJsDependencies": ["eva-icons"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "allowedCommonJsDependencies": ["eva-icons"],
               "budgets": [
                 {
                   "type": "initial",
