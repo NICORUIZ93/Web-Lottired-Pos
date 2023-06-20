@@ -9,9 +9,9 @@ import { ConfigurationComponent } from './pages/configuration/configuration.comp
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
+    path: 'auth',
+    loadComponent: () =>
+      import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
 
   { path: 'login', component: LoginComponent },
@@ -19,6 +19,12 @@ const routes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'mysales', component: MySalesComponent },
   { path: 'configuration', component: ConfigurationComponent },
+
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({

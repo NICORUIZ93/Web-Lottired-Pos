@@ -39,7 +39,6 @@ export class FilesUploadComponent {
   }
 
   isValidFileType(fileType: string): boolean {
-   
     return true;
   }
 

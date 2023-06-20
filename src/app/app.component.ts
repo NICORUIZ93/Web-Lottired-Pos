@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
-  NbDialogService,
   NbMenuItem,
   NbSidebarService,
   NbThemeService,
 } from '@nebular/theme';
-import { FilesUploadComponent } from './shared/files-upload/files-upload.component';
 
 @Component({
   selector: 'app-root',
@@ -76,14 +74,23 @@ export class AppComponent {
         },
       ],
     },
+    {
+      title: 'Subir documentos',
+      icon: 'settings-outline',
+      children: [
+        {
+          title: 'update',
+          link: '/configuration',
+        },
+      ],
+    },
   ];
 
   selectedItemFormControl = new FormControl();
 
   constructor(
     private themeService: NbThemeService,
-    private sidebarService: NbSidebarService,
-    private dialogService: NbDialogService
+    private sidebarService: NbSidebarService
   ) {}
 
   ngOnInit() {}
@@ -94,14 +101,5 @@ export class AppComponent {
 
   toggle() {
     this.sidebarService.toggle(false, 'left');
-  }
-
-  open() {
-    this.dialogService
-      .open(FilesUploadComponent, {
-        context: 'Este es un mensaje de prueba',
-        hasBackdrop: true,
-      })
-      .onClose.subscribe(() => {});
   }
 }
