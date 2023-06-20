@@ -1,22 +1,22 @@
-  <nb-card>
-    <nb-card-body>
-      <div
-        class="dropzone"
-        (dragover)="onDragOver($event)"
-        (dragleave)="onDragLeave($event)"
-        (drop)="onDrop($event)"
-      >
-        <p>Arrastra y suelta aquí tus archivos</p>
-        <button nbButton status="primary" (click)="fileInput.click()">
-          Seleccionar archivos
-        </button>
-        <input
-          type="file"
-          hidden
-          #fileInput
-          (change)="onFileSelected($event)"
-          multiple
-        />
+<nb-card>
+  <nb-card-body>
+    <div
+      class="dropzone"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+    >
+      <p>Arrastra y suelta aquí tus archivos</p>
+      <button nbButton status="primary" (click)="fileInput.click()">
+        Seleccionar archivos
+      </button>
+      <input
+        type="file"
+        hidden
+        #fileInput
+        (change)="onFileSelected($event)"
+        multiple
+      />
 
       <div
         *ngIf="selectedFiles.length > 0"
@@ -30,5 +30,5 @@
         <button nbButton status="primary" (click)="uploadFiles()">Subir</button>
       </div>
     </div>
-    </nb-card-body>
-  </nb-card>
+  </nb-card-body>
+</nb-card>

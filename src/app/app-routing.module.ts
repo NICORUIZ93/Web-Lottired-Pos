@@ -19,31 +19,38 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'auth',
+        redirectTo: 'home',
       },
     ],
   },
   {
     path: 'home',
-    component: HomeComponent,
     loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomeModule),
+      import('./pages/home/home.module').then((mod) => mod.HomeModule),
   },
   {
     path: 'configuration',
-    component: ConfigurationComponent,
+    loadChildren: () =>
+      import('./pages/configuration/configuration.module').then(
+        (mod) => mod.ConfigurationModule
+      ),
   },
   {
     path: 'mysales',
-    component: MySalesComponent,
+    loadChildren: () =>
+      import('./pages/my-sales/my-sales.module').then(
+        (mod) => mod.MySalesModule
+      ),
   },
   {
     path: 'news',
-    component: NewsComponent,
+    loadChildren: () =>
+      import('./pages/news/news.module').then((mod) => mod.NewsModule),
   },
   {
     path: 'sales',
-    component: SalesComponent,
+    loadChildren: () =>
+      import('./pages/sales/sales.module').then((mod) => mod.SalesModule),
   },
   {
     path: '**',

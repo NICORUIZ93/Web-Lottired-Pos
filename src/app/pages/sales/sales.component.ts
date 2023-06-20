@@ -51,7 +51,7 @@ export class SalesComponent {
       console.log('hola');
       console.log(this.ventaForm.value);
       this.ventaForm.reset();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/auth/login']);
     }, 1000);
   }
 
