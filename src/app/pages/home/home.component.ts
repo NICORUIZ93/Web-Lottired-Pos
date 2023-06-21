@@ -24,6 +24,10 @@ export class HomeComponent {
           link: '/auth/login',
         },
         {
+          title: 'Registro de usuarios',
+          link: '/auth/registration',
+        },
+        {
           title: 'Logout',
         },
       ],
