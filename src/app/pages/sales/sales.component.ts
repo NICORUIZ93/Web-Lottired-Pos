@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NbGlobalPhysicalPosition } from '@nebular/theme';
 
 @Component({
   selector: 'app-sales',
@@ -12,7 +11,6 @@ export class SalesComponent {
   ventaForm: FormGroup;
   loading = false;
   randomNumbers: number[] = [];
-  positions = NbGlobalPhysicalPosition;
 
   constructor(private fb: FormBuilder, private router: Router) {}
 

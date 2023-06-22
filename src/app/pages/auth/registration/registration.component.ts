@@ -25,9 +25,7 @@ export class RegistrationComponent {
   }
 
   submitForm() {
-    // Lógica para enviar el formulario
     if (this.myForm.valid) {
-      // Aquí puedes enviar los datos del formulario al servidor
       console.log(this.myForm.value);
     }
   }
