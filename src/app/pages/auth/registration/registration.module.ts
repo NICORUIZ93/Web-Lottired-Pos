@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { RegistrationRoutingModule } from './registration-routing.module';
+import {RegistrationRoutingModule} from './registration-routing.module';
 
 @NgModule({
   declarations: [],
@@ -10,4 +10,5 @@ import { RegistrationRoutingModule } from './registration-routing.module';
     RegistrationRoutingModule
   ]
 })
-export class RegistrationModule { }
+export class RegistrationModule {
+}

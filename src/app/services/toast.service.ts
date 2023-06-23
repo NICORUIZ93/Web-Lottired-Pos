@@ -1,18 +1,15 @@
-import { Injectable } from '@angular/core';
-import {
-  NbGlobalPhysicalPosition,
-  NbGlobalLogicalPosition,
-  NbToastrService,
-} from '@nebular/theme';
+import {Injectable} from '@angular/core';
+import {NbGlobalLogicalPosition, NbGlobalPhysicalPosition, NbToastrService,} from '@nebular/theme';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToastService {
-  constructor(private toastrService: NbToastrService) {}
-
   physicalPositions = NbGlobalPhysicalPosition;
   logicalPositions = NbGlobalLogicalPosition;
+
+  constructor(private toastrService: NbToastrService) {
+  }
 
   showToast(titulo: string, mensaje: string) {
     this.toastrService.show(mensaje, titulo, {

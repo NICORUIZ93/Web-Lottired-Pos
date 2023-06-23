@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NbMenuItem, NbThemeService, NbSidebarService } from '@nebular/theme';
+import {Component} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {NbMenuItem, NbSidebarService, NbThemeService} from '@nebular/theme';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { NbMenuItem, NbThemeService, NbSidebarService } from '@nebular/theme';
 })
 export class HomeComponent {
   changeStateTheme: Boolean;
-  profiles = [{ title: 'Profile' }, { title: 'Logout' }];
+  profiles = [{title: 'Profile'}, {title: 'Logout'}];
 
   themes = ['dark', 'corporate', 'cosmic', 'default', 'prueba'];
 
@@ -79,7 +79,8 @@ export class HomeComponent {
   constructor(
     private themeService: NbThemeService,
     private sidebarService: NbSidebarService
-  ) {}
+  ) {
+  }
 
   changeTheme(theme) {
     this.themeService.changeTheme(theme);

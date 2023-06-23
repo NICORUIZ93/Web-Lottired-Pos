@@ -2,32 +2,32 @@
   <nb-card-body>
     <label class="search-label" for="search">Search:</label>
     <input
-      nbInput
       [nbFilterInput]="dataSource"
-      id="search"
       class="search-input"
+      id="search"
+      nbInput
     />
 
     <table
-      [nbTreeGrid]="dataSource"
-      [nbSort]="dataSource"
       (sort)="updateSort($event)"
+      [nbSort]="dataSource"
+      [nbTreeGrid]="dataSource"
     >
-      <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
-      <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+      <tr *nbTreeGridHeaderRowDef="allColumns" nbTreeGridHeaderRow></tr>
+      <tr *nbTreeGridRowDef="let row; columns: allColumns" nbTreeGridRow></tr>
 
       <ng-container [nbTreeGridColumnDef]="customColumn">
         <th
-          nbTreeGridHeaderCell
-          [nbSortHeader]="getSortDirection(customColumn)"
           *nbTreeGridHeaderCellDef
+          [nbSortHeader]="getSortDirection(customColumn)"
+          nbTreeGridHeaderCell
         >
           {{customColumn}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <td *nbTreeGridCellDef="let row" nbTreeGridCell>
           <nb-fs-icon
-            [kind]="row.data.kind"
             [expanded]="row.expanded"
+            [kind]="row.data.kind"
           ></nb-fs-icon>
           {{row.data[customColumn]}}
         </td>
@@ -39,13 +39,13 @@
         [showOn]="getShowOn(index)"
       >
         <th
-          nbTreeGridHeaderCell
-          [nbSortHeader]="getSortDirection(column)"
           *nbTreeGridHeaderCellDef
+          [nbSortHeader]="getSortDirection(column)"
+          nbTreeGridHeaderCell
         >
           {{column}}
         </th>
-        <td nbTreeGridCell *nbTreeGridCellDef="let row">
+        <td *nbTreeGridCellDef="let row" nbTreeGridCell>
           {{row.data[column] || '-'}}
         </td>
       </ng-container>

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ToastService } from 'src/app/services/toast.service';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {ToastService} from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +10,13 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private toastService: ToastService
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({

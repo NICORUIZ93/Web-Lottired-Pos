@@ -1,21 +1,21 @@
 <nb-card>
   <nb-card-body>
     <div
-      class="dropzone"
-      (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave($event)"
+      (dragover)="onDragOver($event)"
       (drop)="onDrop($event)"
+      class="dropzone"
     >
       <p>Arrastra y suelta aquí tus archivos</p>
-      <button nbButton status="primary" (click)="fileInput.click()">
+      <button (click)="fileInput.click()" nbButton status="primary">
         Seleccionar archivos
       </button>
       <input
-        type="file"
-        hidden
         #fileInput
         (change)="onFileSelected($event)"
+        hidden
         multiple
+        type="file"
       />
 
       <div
@@ -27,7 +27,7 @@
         <ul>
           <li *ngFor="let file of selectedFiles">{{ file.name }}</li>
         </ul>
-        <button nbButton status="primary" (click)="uploadFiles()">Subir</button>
+        <button (click)="uploadFiles()" nbButton status="primary">Subir</button>
       </div>
     </div>
   </nb-card-body>

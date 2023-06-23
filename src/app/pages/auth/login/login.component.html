@@ -4,30 +4,32 @@
       <nb-card>
         <nb-card-header>Login</nb-card-header>
         <nb-card-body>
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
             <div class="form-group">
               <label for="username">
-                <nb-icon icon="person-outline"></nb-icon> Username</label
+                <nb-icon icon="person-outline"></nb-icon>
+                Username</label
               >
               <input
-                type="text"
-                nbInput
-                id="username"
                 formControlName="username"
+                id="username"
+                nbInput
+                type="text"
               />
             </div>
             <div class="form-group">
               <label for="password">
-                <nb-icon icon="unlock-outline"></nb-icon> Password</label
+                <nb-icon icon="unlock-outline"></nb-icon>
+                Password</label
               >
               <input
-                type="password"
-                nbInput
-                id="password"
                 formControlName="password"
+                id="password"
+                nbInput
+                type="password"
               />
             </div>
-            <button nbButton status="success" [disabled]="loginForm.invalid">
+            <button [disabled]="loginForm.invalid" nbButton status="success">
               Login
             </button>
           </form>

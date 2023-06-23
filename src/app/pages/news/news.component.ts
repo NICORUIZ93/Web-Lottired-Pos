@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-news',
@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NewsComponent {
   mensajes = [
-    { texto: 'primer mensaje', titulo: 'Titulo 1' },
-    { texto: 'segundo mensaje', titulo: 'Titulo 2' },
-    { texto: 'tercer mensaje', titulo: 'Titulo 3' },
+    {texto: 'primer mensaje', titulo: 'Titulo 1'},
+    {texto: 'segundo mensaje', titulo: 'Titulo 2'},
+    {texto: 'tercer mensaje', titulo: 'Titulo 3'},
   ];
 
-  constructor() {}
+  constructor() {
+  }
 }

@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NbMenuItem, NbSidebarService, NbThemeService } from '@nebular/theme';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',

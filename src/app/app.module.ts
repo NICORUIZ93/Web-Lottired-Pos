@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { HttpClientModule } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import {HttpClientModule} from '@angular/common/http';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NbEvaIconsModule} from '@nebular/eva-icons';
 import {
   NbActionsModule,
   NbAlertModule,
@@ -29,17 +29,17 @@ import {
   NbTreeGridModule,
   NbUserModule,
 } from '@nebular/theme';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/auth/login/login.component';
-import { RegistrationComponent } from './pages/auth/registration/registration.component';
-import { ConfigurationComponent } from './pages/configuration/configuration.component';
-import { HomeComponent } from './pages/home/home.component';
-import { MySalesComponent } from './pages/my-sales/my-sales.component';
-import { NewsComponent } from './pages/news/news.component';
-import { SalesComponent } from './pages/sales/sales.component';
-import { Page404Component } from './pages/static/page404/page404.component';
-import { FilesUploadComponent } from './shared/files-upload/files-upload.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {LoginComponent} from './pages/auth/login/login.component';
+import {RegistrationComponent} from './pages/auth/registration/registration.component';
+import {ConfigurationComponent} from './pages/configuration/configuration.component';
+import {HomeComponent} from './pages/home/home.component';
+import {MySalesComponent} from './pages/my-sales/my-sales.component';
+import {NewsComponent} from './pages/news/news.component';
+import {SalesComponent} from './pages/sales/sales.component';
+import {Page404Component} from './pages/static/page404/page404.component';
+import {FilesUploadComponent} from './shared/files-upload/files-upload.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +61,7 @@ import { FilesUploadComponent } from './shared/files-upload/files-upload.compone
     FormsModule,
     HttpClientModule,
     DragDropModule,
-    NbThemeModule.forRoot({ name: 'default' }),
+    NbThemeModule.forRoot({name: 'default'}),
     NbLayoutModule,
     NbEvaIconsModule,
     NbMenuModule.forRoot(),
@@ -101,4 +101,5 @@ import { FilesUploadComponent } from './shared/files-upload/files-upload.compone
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+}

@@ -2,17 +2,19 @@
   <nb-layout-header fixed>
     <div class="button-group">
       <nb-user
+        (click)="toggle()"
         name="Nikita Poltoratsky"
         title="full-stack developer"
-        (click)="toggle()"
       >
       </nb-user>
     </div>
   </nb-layout-header>
-  <nb-sidebar tag="left" state="collapsed">
+  <nb-sidebar state="collapsed" tag="left">
     <nb-card>
       <nb-menu [items]="items"></nb-menu>
     </nb-card>
   </nb-sidebar>
-  <nb-layout-column><router-outlet></router-outlet></nb-layout-column>
+  <nb-layout-column>
+    <router-outlet></router-outlet>
+  </nb-layout-column>
 </nb-layout>

@@ -1,36 +1,36 @@
 <nb-card>
   <nb-card-header>Formulario de Registro</nb-card-header>
   <nb-card-body>
-    <form [formGroup]="myForm" (ngSubmit)="submitForm()">
+    <form (ngSubmit)="submitForm()" [formGroup]="myForm">
       <div class="form-group">
         <nb-input-group>
           <input
-            nbInput
-            id="name"
             formControlName="name"
+            id="name"
+            nbInput
             placeholder="Nombre"
           />
         </nb-input-group>
-        <div class="error-message" *ngIf="isFieldInvalid('name', 'required')">
+        <div *ngIf="isFieldInvalid('name', 'required')" class="error-message">
           El nombre es requerido
         </div>
-        <div class="error-message" *ngIf="isFieldInvalid('name', 'minlength')">
+        <div *ngIf="isFieldInvalid('name', 'minlength')" class="error-message">
           El nombre debe tener al menos 3 caracteres
         </div>
       </div>
       <div class="form-group">
         <nb-input-group>
           <input
-            nbInput
-            id="email"
             formControlName="email"
+            id="email"
+            nbInput
             placeholder="Correo Electrónico"
           />
         </nb-input-group>
-        <div class="error-message" *ngIf="isFieldInvalid('email', 'required')">
+        <div *ngIf="isFieldInvalid('email', 'required')" class="error-message">
           El correo electrónico es requerido
         </div>
-        <div class="error-message" *ngIf="isFieldInvalid('email', 'email')">
+        <div *ngIf="isFieldInvalid('email', 'email')" class="error-message">
           El correo electrónico no es válido
         </div>
       </div>
@@ -38,30 +38,31 @@
         <nb-input-group>
           <input
             [type]="getInputType()"
-            nbInput
-            id="password"
             formControlName="password"
+            id="password"
+            nbInput
             placeholder="Contraseña"
-          /><button nbSuffix nbButton ghost (click)="toggleShowPassword()">
+          />
+          <button (click)="toggleShowPassword()" ghost nbButton nbSuffix>
             <nb-icon
-              [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
-              pack="eva"
               [attr.aria-label]="
                 showPassword ? 'hide password' : 'show password'
               "
+              [icon]="showPassword ? 'eye-outline' : 'eye-off-2-outline'"
+              pack="eva"
             >
             </nb-icon>
           </button>
         </nb-input-group>
         <div
-          class="error-message"
           *ngIf="isFieldInvalid('password', 'required')"
+          class="error-message"
         >
           La contraseña es requerida
         </div>
         <div
-          class="error-message"
           *ngIf="isFieldInvalid('password', 'minlength')"
+          class="error-message"
         >
           La contraseña debe tener al menos 6 caracteres
         </div>
@@ -69,39 +70,40 @@
       <div class="form-group">
         <nb-input-group>
           <input
-            type="password"
-            nbInput
-            id="confirmPassword"
             formControlName="confirmPassword"
+            id="confirmPassword"
+            nbInput
             placeholder="Confirmar Contraseña"
+            type="password"
           />
         </nb-input-group>
         <div
-          class="error-message"
           *ngIf="isFieldInvalid('confirmPassword', 'required')"
+          class="error-message"
         >
           La confirmación de contraseña es requerida
         </div>
         <div
-          class="error-message"
           *ngIf="isFieldInvalid('confirmPassword', 'passwordMismatch')"
+          class="error-message"
         >
           Las contraseñas no coinciden
         </div>
       </div>
       <div class="form-group">
         <nb-checkbox formControlName="agreeToTerms"
-          >Acepto los términos y condiciones</nb-checkbox
+        >Acepto los términos y condiciones
+        </nb-checkbox
         >
         <div
-          class="error-message"
           *ngIf="isFieldInvalid('agreeToTerms', 'required')"
+          class="error-message"
         >
           Debes aceptar los términos y condiciones
         </div>
       </div>
       <div class="form-group">
-        <button nbButton status="primary" [disabled]="myForm.invalid">
+        <button [disabled]="myForm.invalid" nbButton status="primary">
           Registrarse
         </button>
       </div>

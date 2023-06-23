@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {Component} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -8,8 +8,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class RegistrationComponent {
   myForm: FormGroup;
+  showPassword = true;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+  }
 
   ngOnInit() {
     this.myForm = this.fb.group(
@@ -20,7 +22,7 @@ export class RegistrationComponent {
         confirmPassword: ['', Validators.required],
         agreeToTerms: [false, Validators.requiredTrue],
       },
-      { validator: this.passwordMatchValidator }
+      {validator: this.passwordMatchValidator}
     );
   }
 
@@ -43,13 +45,11 @@ export class RegistrationComponent {
     const password = form.get('password').value;
     const confirmPassword = form.get('confirmPassword').value;
     if (password !== confirmPassword) {
-      form.get('confirmPassword').setErrors({ passwordMismatch: true });
+      form.get('confirmPassword').setErrors({passwordMismatch: true});
     } else {
       form.get('confirmPassword').setErrors(null);
     }
   }
-
-  showPassword = true;
 
   getInputType() {
     if (this.showPassword) {

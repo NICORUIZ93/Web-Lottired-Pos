@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
-import { FilesUploadComponent } from 'src/app/shared/files-upload/files-upload.component';
+import {Component} from '@angular/core';
+import {NbDialogService} from '@nebular/theme';
+import {FilesUploadComponent} from 'src/app/shared/files-upload/files-upload.component';
 
 @Component({
   selector: 'app-configuration',
@@ -8,7 +8,8 @@ import { FilesUploadComponent } from 'src/app/shared/files-upload/files-upload.c
   styleUrls: ['./configuration.component.scss'],
 })
 export class ConfigurationComponent {
-  constructor(private dialogService: NbDialogService) {}
+  constructor(private dialogService: NbDialogService) {
+  }
 
   open() {
     this.dialogService
@@ -16,6 +17,7 @@ export class ConfigurationComponent {
         context: 'Este es un mensaje de prueba',
         hasBackdrop: true,
       })
-      .onClose.subscribe(() => {});
+      .onClose.subscribe(() => {
+    });
   }
 }
