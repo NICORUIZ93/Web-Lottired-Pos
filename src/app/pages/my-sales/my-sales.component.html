@@ -1,54 +1,28 @@
 <nb-card>
-  <nb-card-body>
-    <label class="search-label" for="search">Search:</label>
-    <input
-      [nbFilterInput]="dataSource"
-      class="search-input"
-      id="search"
-      nbInput
-    />
+  <nb-card *ngFor="let venta of ventas">
+    <nb-card-header>
+      <nb-card-subtitle>Fecha: {{ venta.fecha }}</nb-card-subtitle>
+      <nb-card-title>{{ venta.nombre }}</nb-card-title>
+    </nb-card-header>
 
-    <table
-      (sort)="updateSort($event)"
-      [nbSort]="dataSource"
-      [nbTreeGrid]="dataSource"
-    >
-      <tr *nbTreeGridHeaderRowDef="allColumns" nbTreeGridHeaderRow></tr>
-      <tr *nbTreeGridRowDef="let row; columns: allColumns" nbTreeGridRow></tr>
+    <nb-card-body>
+      <div class="row">
+        <div class="col">
+          <nb-icon icon="cash-outline"></nb-icon>
+          <nb-label>Precio: {{ venta.precio }}</nb-label>
+        </div>
+        <div class="col">
+          <nb-icon icon="cart-outline"></nb-icon>
+          <nb-label>Cantidad: {{ venta.cantidad }}</nb-label>
+        </div>
+      </div>
 
-      <ng-container [nbTreeGridColumnDef]="customColumn">
-        <th
-          *nbTreeGridHeaderCellDef
-          [nbSortHeader]="getSortDirection(customColumn)"
-          nbTreeGridHeaderCell
-        >
-          {{customColumn}}
-        </th>
-        <td *nbTreeGridCellDef="let row" nbTreeGridCell>
-          <nb-fs-icon
-            [expanded]="row.expanded"
-            [kind]="row.data.kind"
-          ></nb-fs-icon>
-          {{row.data[customColumn]}}
-        </td>
-      </ng-container>
-
-      <ng-container
-        *ngFor="let column of defaultColumns; let index = index"
-        [nbTreeGridColumnDef]="column"
-        [showOn]="getShowOn(index)"
-      >
-        <th
-          *nbTreeGridHeaderCellDef
-          [nbSortHeader]="getSortDirection(column)"
-          nbTreeGridHeaderCell
-        >
-          {{column}}
-        </th>
-        <td *nbTreeGridCellDef="let row" nbTreeGridCell>
-          {{row.data[column] || '-'}}
-        </td>
-      </ng-container>
-    </table>
-  </nb-card-body>
+      <div class="row">
+        <div class="col">
+          <nb-icon icon="person-outline"></nb-icon>
+          <nb-label>Vendido por: {{ venta.vendedor }}</nb-label>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>
 </nb-card>
