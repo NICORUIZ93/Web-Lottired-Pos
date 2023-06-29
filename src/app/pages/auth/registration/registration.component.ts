@@ -1,5 +1,11 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-registration',
@@ -10,10 +16,13 @@ export class RegistrationComponent {
   myForm: FormGroup;
   showPassword = true;
 
-  constructor(private fb: FormBuilder) {
-  }
+  constructor(private fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit() {
+    this.usersService.getAll().subscribe((data) => {
+      console.log(data);
+    });
+
     this.myForm = this.fb.group(
       {
         name: ['', [Validators.required, Validators.minLength(3)]],
@@ -22,12 +31,16 @@ export class RegistrationComponent {
         confirmPassword: ['', Validators.required],
         agreeToTerms: [false, Validators.requiredTrue],
       },
-      {validator: this.passwordMatchValidator}
+      { validator: this.passwordMatchValidator }
     );
   }
 
   submitForm() {
     if (this.myForm.valid) {
+      this.myForm.addControl('dateRegister', new FormControl(new Date()));
+      this.usersService.registerUser(this.myForm.value).subscribe((data) => {
+        console.log('data', data);
+      });
       console.log(this.myForm.value);
     }
   }
@@ -45,7 +58,7 @@ export class RegistrationComponent {
     const password = form.get('password').value;
     const confirmPassword = form.get('confirmPassword').value;
     if (password !== confirmPassword) {
-      form.get('confirmPassword').setErrors({passwordMismatch: true});
+      form.get('confirmPassword').setErrors({ passwordMismatch: true });
     } else {
       form.get('confirmPassword').setErrors(null);
     }
