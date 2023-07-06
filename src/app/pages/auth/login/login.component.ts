@@ -1,7 +1,8 @@
-import {Component} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {ToastService} from 'src/app/services/toast.service';
+import { LoginService } from './../../../services/login.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,9 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private router: Router,
-    private toastService: ToastService
-  ) {
-  }
+
+    private loginService: LoginService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -26,11 +26,6 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
-    this.toastService.showToast(
-      'Este es el titulo de la notificacion!!!',
-      'Este el el cuerpo del mensaje'
-    );
-    this.router.navigate(['/sales']);
+    this.loginService.signin(this.loginForm.value);
   }
 }

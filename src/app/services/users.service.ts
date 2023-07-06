@@ -1,7 +1,7 @@
-import { Users } from './../models/users.model';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.development';
+import {User} from '../models/user.model';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from 'src/environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class UsersService {
     });
   }
 
-  registerUser(user: Users) {
+  registerUser(user: User) {
     return this.http.post(this.url + '/user/guardar', user, {
       headers: {
         Authorization: 'Basic ' + window.btoa('admin1' + ':' + 'admin1'),

@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { News } from 'src/app/models/news.model';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-news',
@@ -6,12 +8,16 @@ import {Component} from '@angular/core';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent {
-  mensajes = [
-    {texto: 'primer mensaje', titulo: 'Titulo 1'},
-    {texto: 'segundo mensaje', titulo: 'Titulo 2'},
-    {texto: 'tercer mensaje', titulo: 'Titulo 3'},
-  ];
+  news: News[];
+  
+  constructor(private newsService: NewsService) {}
+  ngOnInit() {
+    this.getNews();
+  }
 
-  constructor() {
+  getNews() {
+    this.newsService.getNewsData().subscribe((data) => {
+      this.news = data;
+    });
   }
 }

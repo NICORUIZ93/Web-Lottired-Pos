@@ -1,5 +1,7 @@
-<nb-card *ngFor="let item of mensajes" accent="info" status="success">
-  <nb-card-header>{{item.titulo}}</nb-card-header>
-  <nb-card-body> {{item.texto}} </nb-card-body>
-  <nb-card-footer>Fecha</nb-card-footer>
-</nb-card>
+<div class="container">
+  <nb-card *ngFor="let item of news" accent="info">
+    <nb-card-header>{{ item?.titulo }}</nb-card-header>
+    <nb-card-body> {{ item?.texto }} </nb-card-body>
+    <nb-card-footer>{{ item?.fecha }}</nb-card-footer>
+  </nb-card>
+</div>

@@ -1,28 +1,36 @@
-<nb-card>
-  <nb-card *ngFor="let venta of ventas">
-    <nb-card-header>
-      <nb-card-subtitle>Fecha: {{ venta.fecha }}</nb-card-subtitle>
-      <nb-card-title>{{ venta.nombre }}</nb-card-title>
-    </nb-card-header>
+<div class="container">
+  <nb-list nbInfiniteList listenWindowScroll [threshold]="500">
+    <nb-card *ngFor="let venta of ventas">
+      <nb-card-header>
+        <nb-card-subtitle
+          >Fecha: {{ venta.fechaVenta | date : "dd/MM/yyyy" }}</nb-card-subtitle
+        >
+        <nb-card-title>{{ venta.nombre }}</nb-card-title>
+      </nb-card-header>
 
-    <nb-card-body>
-      <div class="row">
-        <div class="col">
-          <nb-icon icon="cash-outline"></nb-icon>
-          <nb-label>Precio: {{ venta.precio }}</nb-label>
+      <nb-card-body>
+        <div class="row">
+          <div class="col">
+            <nb-icon icon="person-outline"></nb-icon>
+            <nb-label>Vendido por: {{ venta.vendedor }}</nb-label>
+          </div>
         </div>
-        <div class="col">
-          <nb-icon icon="cart-outline"></nb-icon>
-          <nb-label>Cantidad: {{ venta.cantidad }}</nb-label>
+        <div class="row">
+          <div class="col">
+            <nb-icon icon="cash-outline"></nb-icon>
+            <nb-label
+              >Precio:
+              {{
+                venta.precio | currency : "USD" : "symbol" : "1.2-2"
+              }}</nb-label
+            >
+          </div>
+          <div class="col">
+            <nb-icon icon="cart-outline"></nb-icon>
+            <nb-label>Cantidad: {{ venta.cantidad }}</nb-label>
+          </div>
         </div>
-      </div>
-
-      <div class="row">
-        <div class="col">
-          <nb-icon icon="person-outline"></nb-icon>
-          <nb-label>Vendido por: {{ venta.vendedor }}</nb-label>
-        </div>
-      </div>
-    </nb-card-body>
-  </nb-card>
-</nb-card>
+      </nb-card-body>
+    </nb-card>
+  </nb-list>
+</div>

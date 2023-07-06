@@ -1,6 +1,7 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {Page404Component} from './pages/static/page404/page404.component';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { Page404Component } from './pages/static/page404/page404.component';
+import { authGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./pages/home/home.module').then((mod) => mod.HomeModule),
+    canActivateChild: [authGuard],
   },
   {
     path: 'configuration',
@@ -58,5 +60,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
