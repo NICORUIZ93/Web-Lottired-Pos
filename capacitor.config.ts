@@ -4,7 +4,6 @@ const config: CapacitorConfig = {
   appId: 'web.lottired.pos',
   appName: 'web-lottired-pos',
   webDir: 'dist',
-  plugins: {CapacitorHttp: {enabled: true}},
   server: {
     androidScheme: 'https',
   },

@@ -1,3 +1,4 @@
 export const environment = {
-  url: 'https://192.168.0.18:9328/api',
+  production: false,
+  url: 'http://127.0.0.1:9328/api',
 };
