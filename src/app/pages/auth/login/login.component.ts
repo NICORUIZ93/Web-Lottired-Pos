@@ -23,6 +23,15 @@ export class LoginComponent {
     });
   }
 
+  isFieldInvalid(fieldName: string, errorType: string) {
+    const field = this.loginForm.get(fieldName);
+    return (
+      field.invalid &&
+      (field.dirty || field.touched) &&
+      field.hasError(errorType)
+    );
+  }
+
   onSubmit() {
     this.loginService.signin(this.loginForm.value);
   }

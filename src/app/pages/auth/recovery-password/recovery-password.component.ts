@@ -15,12 +15,26 @@ export class RecoveryPasswordComponent {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
+      documentNumber: ['', Validators.required],
       email: ['', Validators.required],
       telephone: ['', Validators.required],
     });
   }
 
+  isFieldInvalid(fieldName: string, errorType: string) {
+    const field = this.loginForm.get(fieldName);
+    return (
+      field.invalid &&
+      (field.dirty || field.touched) &&
+      field.hasError(errorType)
+    );
+  }
+
   recoveryPassword() {
+    this.loginService.recoveryPassword(this.loginForm.value);
+  }
+
+  onSubmit() {
     this.loginService.recoveryPassword(this.loginForm.value);
   }
 }
