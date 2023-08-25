@@ -1,0 +1,100 @@
+[
+  {
+    "title": "Login",
+    "icon": "person-outline",
+    "expanded": false,
+    "children": [
+      {
+        "title": "Login",
+        "link": "/auth/login"
+      },
+      {
+        "title": "Registro de usuarios",
+        "link": "/auth/registration"
+      },
+      {
+        "title": "Logout"
+      }
+    ]
+  },
+  {
+    "title": "ventas",
+    "icon": "shopping-cart-outline",
+    "children": [
+      {
+        "title": "venta",
+        "link": "/sales"
+      }
+    ]
+  },
+  {
+    "title": "Historial",
+    "icon": "shopping-bag-outline",
+    "children": [
+      {
+        "title": "Mi historial de ventas",
+        "link": "/mysales"
+      }
+    ]
+  },
+  {
+    "title": "Noticias",
+    "icon": "shake-outline",
+    "children": [
+      {
+        "title": "Noticias nuevas",
+        "link": "/news"
+      }
+    ]
+  },
+  {
+    "title": "Mis configuraciones",
+    "icon": "settings-outline",
+    "children": [
+      {
+        "title": "Configuracion",
+        "link": "/configuration"
+      }
+    ]
+  },
+  {
+    "title": "Lotería",
+    "icon": "keypad-outline",
+    "children": [
+      {
+        "title": "Configuracion",
+        "link": "/configuration"
+      }
+    ]
+  },
+  {
+    "title": "Contenido",
+    "icon": "folder-outline",
+    "children": [
+      {
+        "title": "Configuracion",
+        "link": "/configuration"
+      }
+    ]
+  },
+  {
+    "title": "Devolucion",
+    "icon": "briefcase-outline",
+    "children": [
+      {
+        "title": "Configuracion",
+        "link": "/configuration"
+      }
+    ]
+  },
+  {
+    "title": "Seguridad",
+    "icon": "lock-outline",
+    "children": [
+      {
+        "title": "Configuracion",
+        "link": "/configuration"
+      }
+    ]
+  }
+]

@@ -40,6 +40,7 @@ import { SalesComponent } from './pages/sales/sales.component';
 import { Page404Component } from './pages/static/page404/page404.component';
 import { FilesUploadComponent } from './shared/files-upload/files-upload.component';
 import { JwtInterceptor } from './services/interceptors/jwt-interceptor';
+import { RecoveryPasswordComponent } from './pages/auth/recovery-password/recovery-password.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { JwtInterceptor } from './services/interceptors/jwt-interceptor';
     FormsModule,
     HttpClientModule,
     DragDropModule,
+    ReactiveFormsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
@@ -70,7 +72,6 @@ import { JwtInterceptor } from './services/interceptors/jwt-interceptor';
     NbDialogModule.forRoot(),
     NbButtonModule,
     NbIconModule,
-    ReactiveFormsModule,
     NbCardModule,
     NbInputModule,
     NbTreeGridModule,

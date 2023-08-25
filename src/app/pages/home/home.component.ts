@@ -1,84 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { NbMenuItem, NbSidebarService, NbThemeService } from '@nebular/theme';
+import { HomeService } from '../../services/home.service';
+import { IconsMenu } from 'src/interfaces';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   changeStateTheme: Boolean;
   profiles = [{ title: 'Profile' }, { title: 'Logout' }];
+  username: string;
+  user: { role: string; firstName: string };
+  role: string;
+  items: Observable<NbMenuItem[]>;
 
-  themes = ['dark', 'corporate', 'cosmic', 'default', 'prueba'];
-
-  items: NbMenuItem[] = [
-    {
-      title: 'Login',
-      icon: 'person-outline',
-      expanded: false,
-      children: [
-        {
-          title: 'Login',
-          link: '/auth/login',
-        },
-        {
-          title: 'Registro de usuarios',
-          link: '/auth/registration',
-        },
-        {
-          title: 'Logout',
-        },
-      ],
-    },
-    {
-      title: 'ventas',
-      icon: 'shopping-cart-outline',
-      children: [
-        {
-          title: 'venta',
-          link: '/sales',
-        },
-      ],
-    },
-    {
-      title: 'Historial',
-      icon: 'shopping-bag-outline',
-      children: [
-        {
-          title: 'Mi historial de ventas',
-          link: '/mysales',
-        },
-      ],
-    },
-    {
-      title: 'Noticias',
-      icon: 'shake-outline',
-      children: [
-        {
-          title: 'Noticias nuevas',
-          link: '/news',
-        },
-      ],
-    },
-    {
-      title: 'Mis configuraciones',
-      icon: 'settings-outline',
-      children: [
-        {
-          title: 'Configuracion',
-          link: '/configuration',
-        },
-      ],
-    },
-  ];
-
-  selectedItemFormControl = new FormControl();
+  ngOnInit() {
+    this.getIconMenu();
+    this.user = JSON.parse(localStorage.getItem('user'));
+    this.role = this.user?.role;
+    this.username = this.user?.firstName;
+  }
 
   constructor(
     private themeService: NbThemeService,
-    private sidebarService: NbSidebarService
+    private sidebarService: NbSidebarService,
+    private homeService: HomeService
   ) {}
 
   changeTheme(theme) {
@@ -87,5 +37,9 @@ export class HomeComponent {
 
   toggle() {
     this.sidebarService.toggle(false, 'left');
+  }
+
+  getIconMenu() {
+    this.items = this.homeService.getIconMenu();
   }
 }

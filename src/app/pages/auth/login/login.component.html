@@ -6,12 +6,12 @@
         <nb-card-body>
           <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
             <div class="form-group">
-              <label for="username">
+              <label for="documentNumber">
                 <nb-icon icon="person-outline"></nb-icon>
-                Username</label
+                Documento</label
               >
               <input
-                formControlName="username"
+                formControlName="documentNumber"
                 id="username"
                 nbInput
                 type="text"
@@ -34,6 +34,15 @@
             </button>
           </form>
         </nb-card-body>
+        <nb-layout-row>
+          <nb-layout-column class="text-right">
+            <p>
+              <a routerLink="/auth/recovery-password" style="color: #6de2d9">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </p>
+          </nb-layout-column>
+        </nb-layout-row>
       </nb-card>
     </div>
   </nb-layout-column>

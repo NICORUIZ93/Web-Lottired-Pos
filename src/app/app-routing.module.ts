@@ -5,19 +5,9 @@ import { authGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
   {
-    path: '',
-    children: [
-      {
-        path: 'auth',
-        loadChildren: () =>
-          import('./pages/auth/auth.module').then((m) => m.AuthModule),
-      },
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: '/auth/login',
-      },
-    ],
+    path: 'auth',
+    loadChildren: () =>
+      import('./pages/auth/auth.module').then((m) => m.AuthModule),
   },
   {
     path: 'home',
@@ -51,7 +41,11 @@ const routes: Routes = [
   },
   {
     path: '**',
+    redirectTo: 'auth',
     pathMatch: 'full',
+  },
+  {
+    path: 'Page404',
     component: Page404Component,
   },
 ];

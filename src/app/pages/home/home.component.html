@@ -3,24 +3,15 @@
     <div class="button-group">
       <nb-user
         (click)="toggle()"
-        name="Nikita Poltoratsky"
-        title="full-stack developer"
+        [name]="username"
+        [title]="role"
         picture="assets/man-597178_960_720.jpg"
       ></nb-user>
     </div>
   </nb-layout-header>
   <nb-sidebar state="collapsed" tag="left">
-    <div>
-      <h4>
-        Cupo:
-        <p>$500.000</p>
-      </h4>
-    </div>
     <nb-card>
-      <nb-menu [items]="items"></nb-menu>
+      <nb-menu [items]="items | async"></nb-menu>
     </nb-card>
   </nb-sidebar>
-  <nb-layout-column>
-    <router-outlet></router-outlet>
-  </nb-layout-column>
 </nb-layout>

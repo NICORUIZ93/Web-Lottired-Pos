@@ -1,7 +1,12 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
   {
     path: 'login',
     loadChildren: () =>
@@ -15,9 +20,11 @@ const routes: Routes = [
       ),
   },
   {
-    path: '**',
-    pathMatch: 'full',
-    redirectTo: 'login',
+    path: 'recovery-password',
+    loadChildren: () =>
+      import('./recovery-password/recovery-password.module').then(
+        (m) => m.RecoveryPasswordModule
+      ),
   },
 ];
 
@@ -25,5 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AuthRoutingModule {
-}
+export class AuthRoutingModule {}
