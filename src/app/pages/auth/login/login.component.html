@@ -5,30 +5,32 @@
         <nb-card-header>Login</nb-card-header>
         <nb-card-body>
           <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-            <div class="form-group">
-              <label for="documentNumber">
-                <nb-icon icon="person-outline"></nb-icon>
-                Documento</label
-              >
-              <input
-                formControlName="documentNumber"
-                id="username"
-                nbInput
-                type="text"
-              />
-            </div>
-            <div class="form-group">
+
+
+            <nb-input-group>
               <label for="password">
                 <nb-icon icon="unlock-outline"></nb-icon>
-                Password</label
-              >
-              <input
-                formControlName="password"
-                id="password"
-                nbInput
-                type="password"
-              />
-            </div>
+                Documento</label>
+              <input formControlName="documentNumber" nbInput placeholder="Nombre" />
+              <div *ngIf="isFieldInvalid('documentNumber', 'required')" class="error-message">
+                El Documento es requerido
+              </div>
+              <div *ngIf="isFieldInvalid('documentNumber', 'minlength')" class="error-message">
+                El nombre debe tener al menos 3 caracteres
+              </div>
+            </nb-input-group>
+            <nb-input-group>
+              <label for="password">
+                <nb-icon icon="unlock-outline"></nb-icon>
+                Password</label>
+              <input formControlName="password" id="password" nbInput type="password" />
+              <div *ngIf="isFieldInvalid('password', 'required')" class="error-message">
+                La contraseña es requerida
+              </div>
+              <div *ngIf="isFieldInvalid('password', 'minlength')" class="error-message">
+                El nombre debe tener al menos 3 caracteres
+              </div>
+            </nb-input-group>
             <button [disabled]="loginForm.invalid" nbButton status="success">
               Ingresar
             </button>
